@@ -8,7 +8,11 @@ env:
     xcode_sdk=iphonesimulator
     xcode_platform="platform=iOS Simulator,name=iPhone 6"
 
-install: pod install
+before_install:
+  - brew update
+  - brew install carthage
+
+install: carthage update --platform iOS
 
 script:
   - >
